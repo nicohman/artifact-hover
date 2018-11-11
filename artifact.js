@@ -1,6 +1,7 @@
 'use strict';
 window.addEventListener("load", function(){
   console.log("loading");
+  if (window.location.href.indexOf("/r/artifact")){
   var cardRequest = new Request(browser.runtime.getURL("cards.json"));
   fetch(cardRequest)
     .then(response => {
@@ -34,4 +35,5 @@ window.addEventListener("load", function(){
   function processCardName(name) {
     return name.replace(" ", "_").replace("'", "-");
   }
+}
 });
